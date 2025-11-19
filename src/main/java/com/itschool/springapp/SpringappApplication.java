@@ -19,7 +19,7 @@ public class SpringappApplication {
     public static void main(String[] args) {
 
         SpringApplication.run(SpringappApplication.class, args);
-        try (PDDocument pdfDocument = new PDDocument();) {
+        try (PDDocument pdfDocument = new PDDocument()) {
             PDPage page1 = new PDPage();
             pdfDocument.addPage(page1);
             PDPageContentStream contentStreamP1 = new PDPageContentStream(pdfDocument, page1);
@@ -30,9 +30,7 @@ public class SpringappApplication {
             contentStreamP1.showText(text);
             contentStreamP1.endText();
             contentStreamP1.close();
-            pdfDocument.save("P:/pdfTest/myFirstPdfFromJava.pdf");
-
-            pdfDocument.close();
+            pdfDocument.save("myFirstPdfFromJava.pdf");
         } catch (Exception e) {
             e.printStackTrace();
         }
